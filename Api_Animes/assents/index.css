@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+.buttons {
+    margin-top: 20px; /* Distância do título */
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #3586ff; /* Cor de fundo azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #2768c1; /* Cor mais escura no hover */
+}
+
+.buttons button:disabled {
+    background-color: #cccccc; /* Cor para botões desativados */
+    cursor: not-allowed; /* Mostra o cursor de "não permitido" */
+}
+
+.anime-container {
+    width: 80%; /* Ajusta a largura do carrossel */
+    max-width: 1000px; /* Limita o tamanho máximo do carrossel */
+    margin: 0 auto; /* Centraliza o carrossel */
+    overflow: hidden; /* Oculta os itens extras */
+}
+
+.anime-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    justify-content: center; /* Centraliza os cards */
+}
+
+.card {
+    flex: 0 0 calc(20% - 20px); /* Divide em 5 colunas ajustadas */
+    max-width: 200px; /* Limita a largura dos itens */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Ajusta a altura das imagens */
+    object-fit: cover;
+}
+
+.card p {
+    padding: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Barra de pesquisa no topo */
+.search-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(53, 134, 255, 0.9); /* Cor de fundo com transparência */
+    padding: 10px 15px; /* Diminui o padding */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    z-index: 999; /* Garantir que fique acima do conteúdo */
+}
+
+.search-container input {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Centralizar o h1 */
+.center-container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    padding: 0 10px;
+    height: calc(100vh - 70px); /* Ajusta para não sobrepor a barra de pesquisa */
+    text-align: center;
+    overflow-y: auto;
+    margin-top: 80px; /* Adicionando margem para que o conteúdo comece abaixo da barra de pesquisa */
+    margin-bottom: 50px; /* Cria um espaço de 50px antes da onda */
+}
+
+/* Ajuste para a seção de conteúdo principal */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #3586ff;
+    overflow: hidden;
+    padding-bottom: 50px; /* Adiciona 50px de espaçamento abaixo para a onda */
+}
+
+/* Estilo para as ondas */ 
+section .wave {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100px; /* Defina uma altura menor */
+    background: url(/img/wave.png);
+    background-size: 1000px 100px;
+}
+
+section .wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+section .wave.wave2 {
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+section .wave.wave3 {
+    animation: animate3 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+
+section .wave.wave4 {
+    animation: animate4 15s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -750px;
+    }
+}
+
+@keyframes animate4 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -958px;
+    }
+}
+
+/* Estilos do footer */
+.footerContainer
+{
+    width:100% ;
+    padding: 70px 30px 20px;
+}
+
+.socialIcons
+{
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3586ff;
+    margin: 10px;
+    border-radius: 50%;
+    color: black;
+}
+
+/* Navegação do footer */
+.footerNav a
+{
+    margin: 30px 0;
+    color: black;
+    margin: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo da parte inferior do footer */
+.footerBottom
+{
+    padding: 20px;
+    text-align: center;
+}
